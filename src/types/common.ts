@@ -6,3 +6,11 @@ export interface BaseData {
   school: string;
   lessons: number;
 }
+
+export interface DataStateChange {
+  country: string;
+  school: string;
+  camp: string;
+  schools: string[];
+  camps: string[];
+}

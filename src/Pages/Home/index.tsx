@@ -1,5 +1,6 @@
-import React, { FC, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { Container } from "react-bootstrap";
+import ChartView from "src/components/ChartView";
 import Header from "../../components/Header/Header";
 import SelectForm from "../../components/selectForm";
 import { fetchChartData } from "../../slices/Data";
@@ -19,7 +20,7 @@ const Home: FC = () => {
       <Header title="Analysis Chart" />
       <Header title="Number of Lessons" isSubtitle />
       <SelectForm />
-      {data.length === 0 && <h1>Loading...</h1>}
+      {data.length === 0 ? <h1>Loading...</h1> : <ChartView />}
     </Container>
   );
 };

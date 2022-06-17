@@ -1,7 +1,7 @@
 import { TypedUseSelectorHook, useSelector as useReduxSelector, useDispatch as useReduxDispatch } from "react-redux";
 import { AnyAction, configureStore, ThunkAction } from "@reduxjs/toolkit";
 
-import dataReducer from "../slices/Data";
+import dataReducer from "src/slices/Data";
 
 export const store = configureStore({
   reducer: {
