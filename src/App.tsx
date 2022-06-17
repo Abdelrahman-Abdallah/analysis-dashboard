@@ -20,7 +20,7 @@ function App() {
     isDarkMode ? setDark() : setLight();
   }, [isDarkMode, setDark, setLight]);
   return (
-    <div>
+    <div data-testid="App">
       <Routes>
         <Route path="/item/:id" element={<SchoolItemView />} />
         <Route path="/" element={<Home />} />

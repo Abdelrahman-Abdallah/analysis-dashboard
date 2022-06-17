@@ -13,7 +13,7 @@ const DarkTheme = () => {
     <div className="toggle-theme-wrapper">
       <span>☀️</span>
       <label className="toggle-theme" htmlFor="checkbox">
-        <input type="checkbox" id="checkbox" onChange={handleChangeMode} defaultChecked={isDarkTheme} />
+        <input type="checkbox" id="checkbox" data-testid="darkModeToggle" onChange={handleChangeMode} defaultChecked={isDarkTheme} />
         <div className="slider round"></div>
       </label>
       <span>🌒</span>

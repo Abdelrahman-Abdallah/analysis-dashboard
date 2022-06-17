@@ -12,6 +12,9 @@ export const store = configureStore({
   devTools: true,
 });
 
+store.subscribe(() => {
+  console.log(store.getState());
+});
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, AnyAction>;
 export type AppDispatch = typeof store.dispatch;
