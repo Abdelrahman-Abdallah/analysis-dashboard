@@ -3,7 +3,7 @@ import { createMemoryHistory } from "history";
 import { Provider } from "react-redux";
 import { Router } from "react-router-dom";
 import ChartView from "src/components/ChartView";
-import { addData, fetchChartData } from "src/slices/Data";
+import { addData } from "src/slices/Data";
 import { store } from "src/store";
 import { BaseData } from "src/types/common";
 
