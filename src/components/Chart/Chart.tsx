@@ -10,11 +10,8 @@ const Chart = () => {
   const chartRef = useRef(null);
 
   const { baseSchoolData, chartInfo: info } = useSelector((state) => state.data);
-  const title = baseSchoolData[0].campName;
-  const numberOfLessons = baseSchoolData.reduce((acc, data) => acc + data.totalLessons, 0);
 
-  console.log("🚀 ~ file: Chart.tsx ~ line 13 ~ Chart ~ baseSchoolData", baseSchoolData);
-  const onClick = (event) => {
+  const handleChartClick = (event) => {
     const value = getElementAtEvent(chartRef.current, event)[0];
     if (!value) return;
     const { index, datasetIndex } = value;
@@ -37,7 +34,7 @@ const Chart = () => {
     },
   };
 
-  return <div>{info.length > 0 && <Line ref={chartRef} data={{ labels: MONTHS, datasets: info }} onClick={onClick} options={options} />}</div>;
+  return <div>{info.length > 0 && <Line ref={chartRef} data={{ labels: MONTHS, datasets: info }} onClick={handleChartClick} options={options} />}</div>;
 };
 
 export default Chart;

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import concateClasses from "../../utils/concatClasses";
 import classes from "./styles.module.css";
 

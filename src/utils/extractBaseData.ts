@@ -20,5 +20,3 @@ export function extractBaseData(data: BaseData[]): BaseProps {
     schools,
   };
 }
-
-
