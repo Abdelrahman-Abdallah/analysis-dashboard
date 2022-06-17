@@ -3,11 +3,13 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import SchoolItemView from "./Pages/SchoolItemView";
 import DarkTheme from "./components/DarkTheme";
-import { useSelector } from "./store";
+import { useDispatch, useSelector } from "./store";
 import { useCallback, useEffect } from "react";
+import { fetchChartData } from "./slices/Data";
 
 function App() {
   const isDarkMode = useSelector((state) => state.theme.isDarkTheme);
+  const dispatch = useDispatch();
 
   const setDark = useCallback(() => {
     document.documentElement.setAttribute("data-theme", "dark");
@@ -19,6 +21,11 @@ function App() {
   useEffect(() => {
     isDarkMode ? setDark() : setLight();
   }, [isDarkMode, setDark, setLight]);
+
+  useEffect(() => {
+    dispatch(fetchChartData());
+  }, [dispatch]);
+
   return (
     <div data-testid="App">
       <Routes>

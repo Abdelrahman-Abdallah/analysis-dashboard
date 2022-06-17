@@ -60,7 +60,7 @@ const ChartView = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-testid="chart-data">
       <Container fluid>
         <Row>
           <Col xs={10}>

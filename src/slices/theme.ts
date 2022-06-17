@@ -12,7 +12,6 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme: (state) => {
-      console.log("🚀 ~ file: theme.ts ~ line 16 ~ state", state);
       state.isDarkTheme = !state.isDarkTheme;
     },
   },

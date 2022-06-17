@@ -39,7 +39,7 @@ const SelectedSchools: FC<SelectedSchoolsProps> = ({ info, onCheckSchool, hidden
   }
   return (
     <div className={classes.schoolContainer}>
-      <Header isSubtitle title={title} />
+      <Header data-testid="school-lessons-count" isSubtitle title={title} />
       <Header isSubtitle title={`in ${campName}`} />
       <div>{renderSelectedSchools()}</div>
     </div>

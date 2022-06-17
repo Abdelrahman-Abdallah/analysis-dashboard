@@ -17,7 +17,9 @@ const DropDown: FC<DropDownProps> = ({ label, options, selectedValue, onChangeSe
   }
   return (
     <div>
-      <label className={classes.label}>{label}</label>
+      <label className={classes.label} data-testid="mainLabel">
+        {label}
+      </label>
       <select id={label} className={classes.select} value={selectedValue} onChange={onChangeSelectedValue}>
         {renderSelectItems()}
       </select>
