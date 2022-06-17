@@ -7,6 +7,7 @@ import SelectedSchools from "../SelectedSchools";
 import { toggleHiddenSchool } from "src/slices/Data";
 import { useNavigate } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
+import classes from "./styles.module.css";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -19,7 +20,6 @@ const ChartView = () => {
   const title = baseSchoolData[0].campName;
   const numberOfLessons = baseSchoolData.reduce((acc, data) => acc + data.totalLessons, 0);
   const fileredChartInfo = info.filter((item) => !hiddenChartSchools.includes(item.id));
-  console.log("🚀 ~ file: index.tsx ~ line 22 ~ ChartView ~ fileredChartInfo", fileredChartInfo);
   const filterdBasicSchoolData = baseSchoolData.filter((item) => !hiddenChartSchools.includes(item.schoolName));
 
   const onClick = (event) => {
@@ -51,37 +51,29 @@ const ChartView = () => {
           padding: 50,
         },
       },
-
-      title: {
-        display: false,
-        text: `${title}, Number of lessons ${numberOfLessons}`,
-        color: "#2fa1d9",
-      },
     },
   };
 
   return (
-    <div>
-      {info.length > 0 && (
-        <Container className="mt-8">
-          <Row>
-            <Col xs={10}>
-              <Line
-                ref={chartRef}
-                data={{
-                  labels: MONTHS,
-                  datasets: fileredChartInfo,
-                }}
-                onClick={onClick}
-                options={options}
-              />
-            </Col>
-            <Col xs={2}>
-              <SelectedSchools info={info} selectedSchools={hiddenChartSchools} onCheckSchool={handleCheckSchool} numberOfLessons={numberOfLessons} campName={title} />
-            </Col>
-          </Row>
-        </Container>
-      )}
+    <div className={classes.root}>
+      <Container fluid>
+        <Row>
+          <Col xs={10}>
+            <Line
+              ref={chartRef}
+              data={{
+                labels: MONTHS,
+                datasets: fileredChartInfo,
+              }}
+              onClick={onClick}
+              options={options}
+            />
+          </Col>
+          <Col xs={2}>
+            <SelectedSchools info={info} selectedSchools={hiddenChartSchools} onCheckSchool={handleCheckSchool} numberOfLessons={numberOfLessons} campName={title} />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };

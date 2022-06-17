@@ -7,6 +7,18 @@
   --primary-text-bold: #757575;
   --primary-white-color: #fff;
   --primary-select-text-color: #5a9ecb;
+  --primary-chart-color: #fff;
+  --primary-loader-color: orange;
+}
+
+[data-theme="dark"] {
+  --primary-text-color: #8b60a9;
+  --primary-background-color: #000;
+  --primary-font-color: ##d4d6da;
+  --primary-select-border-color: #40a9df;
+  --primary-text-bold: #fff;
+  --primary-white-color: #fff;
+  --primary-select-text-color: #5a9ecb;
 }
 body {
   margin: 0;

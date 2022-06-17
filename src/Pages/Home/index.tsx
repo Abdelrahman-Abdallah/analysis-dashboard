@@ -1,6 +1,7 @@
 import { FC, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import ChartView from "src/components/ChartView";
+import Loader from "src/components/Loader";
 import Header from "../../components/Header/Header";
 import SelectForm from "../../components/selectForm";
 import { fetchChartData } from "../../slices/Data";
@@ -15,12 +16,17 @@ const Home: FC = () => {
     dispatch(fetchChartData());
   }, [dispatch]);
 
+  function renderChart(): JSX.Element {
+    if (data.length === 0) return <Loader />;
+    return <ChartView />;
+  }
+
   return (
     <Container>
       <Header title="Analysis Chart" />
       <Header title="Number of Lessons" isSubtitle />
       <SelectForm />
-      {data.length === 0 ? <h1>Loading...</h1> : <ChartView />}
+      {renderChart()}
     </Container>
   );
 };

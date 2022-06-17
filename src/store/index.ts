@@ -2,10 +2,12 @@ import { TypedUseSelectorHook, useSelector as useReduxSelector, useDispatch as u
 import { AnyAction, configureStore, ThunkAction } from "@reduxjs/toolkit";
 
 import dataReducer from "src/slices/Data";
+import themeReducer from "src/slices/theme";
 
 export const store = configureStore({
   reducer: {
     data: dataReducer,
+    theme: themeReducer,
   },
   devTools: true,
 });

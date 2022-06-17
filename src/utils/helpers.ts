@@ -67,7 +67,7 @@ function generateTableDataSet(schoolsData: BaseSchoolData[]): TableBaseDataSet[]
     const data = school.months.map((month) => +month.split("/").pop());
     const borderColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
-    acc = [...acc, { id: school.schoolName, data, label: `${school.schoolName},${((school.totalLessons / campTotalLessons) * 100).toFixed(2)}`, borderColor }];
+    acc = [...acc, { id: school.schoolName, data, label: `${school.schoolName},${((school.totalLessons / campTotalLessons) * 100).toFixed(2)}%`, borderColor }];
     return acc;
   }, [] as TableBaseDataSet[]);
 }

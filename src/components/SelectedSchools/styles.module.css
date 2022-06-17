@@ -1,0 +1,39 @@
+.checkbox {
+  width: 20px;
+  height: 20px;
+  background-color: inherit;
+  vertical-align: super;
+  border: 1px solid #ddd;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  margin-inline-end: 1rem;
+}
+.checkbox:checked {
+  background-color: var(--primary-select-color);
+}
+.schoolContent {
+  display: flex;
+  flex-direction: column;
+}
+.schoolName {
+  font-size: 10px;
+}
+
+.schoolContainer {
+  /* display: flex; */
+  margin-top: 2rem;
+  /* overflow: scroll; */
+}
+
+.schoolItem {
+  display: flex;
+  margin: 1rem 0;
+  align-items: center;
+}
+
+.bold {
+  font-size: 25px;
+  font-weight: bold;
+}

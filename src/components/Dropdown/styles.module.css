@@ -1,15 +1,17 @@
 .label {
   font-size: 20px;
   margin-inline-end: 5px;
+  color: var(--primary-text-bold);
+  text-transform: capitalize;
+  font-weight: 600;
 }
 
 .select {
   width: 50%;
-  background: var(--primary-select-border-color);
-  color: white;
-  border-color: green;
-  border-radius: 5px;
-  padding: 2px;
-  border: 1px solid var(--primary-select-border-color);
+  background: var(--primary-select-color);
+  color: var(--primary-select-text-color);
+
+  padding: 5px;
+  border: 2px solid var(--primary-select-border-color);
   /* color: var(--primary-select-text-color); */
 }

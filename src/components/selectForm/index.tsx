@@ -26,13 +26,13 @@ const SelectForm = () => {
     <Container className="mt-100">
       <Row>
         <Col>
-          <DropDown label="country" options={countries} selectedValue={selectedCountry} onChangeSelectedValue={handleChangCountry} />
+          <DropDown label="Select Country" options={countries} selectedValue={selectedCountry} onChangeSelectedValue={handleChangCountry} />
         </Col>
         <Col>
-          <DropDown label="camps" options={camps} selectedValue={selectedCamp} onChangeSelectedValue={handleChangeCamp} />
+          <DropDown label="Select Camp" options={camps} selectedValue={selectedCamp} onChangeSelectedValue={handleChangeCamp} />
         </Col>
         <Col>
-          <DropDown label="schools" options={schools} selectedValue={selectSchool} onChangeSelectedValue={handleChangeSchool} />
+          <DropDown label="Select School" options={schools} selectedValue={selectSchool} onChangeSelectedValue={handleChangeSchool} />
         </Col>
       </Row>
     </Container>

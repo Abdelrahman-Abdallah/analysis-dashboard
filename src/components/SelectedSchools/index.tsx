@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { TableBaseDataSet } from "src/utils/helpers";
 import Header from "../Header/Header";
+import classes from "./styles.module.css";
 
 interface SelectedSchoolsProps {
   info: TableBaseDataSet[];
@@ -10,7 +11,8 @@ interface SelectedSchoolsProps {
   campName: string;
 }
 const SelectedSchools: FC<SelectedSchoolsProps> = ({ info, onCheckSchool, selectedSchools, numberOfLessons, campName }) => {
-  const title = `${campName} have ${numberOfLessons} lessons`;
+  const title = `${numberOfLessons} lessons`;
+
   function handleItemClick(id: string) {
     return function () {
       onCheckSchool(id);
@@ -18,17 +20,28 @@ const SelectedSchools: FC<SelectedSchoolsProps> = ({ info, onCheckSchool, select
   }
 
   function renderSelectedSchools(): JSX.Element[] {
-    return info.map((item) => (
-      <div key={item.id} onClick={handleItemClick(item.id)} style={{ color: selectedSchools.includes(item.id) ? "#DDD" : item.borderColor }}>
-        <h6>{item.id}</h6>
-        <p>{item.data.reduce((acc, value) => acc + value, 0)}</p>
-      </div>
-    ));
+    return info.map((item) => {
+      const lessons = item.data.reduce((acc, value) => acc + value, 0);
+      const isChecked = !selectedSchools.includes(item.id) ? true : false;
+      const color = selectedSchools.includes(item.id) ? "#DDD" : item.borderColor;
+      return (
+        <div key={item.id} className={classes.schoolItem} onClick={handleItemClick(item.id)} style={{ color: color }}>
+          <input type="checkbox" defaultChecked={isChecked} className={classes.checkbox} style={{ backgroundColor: color }} />
+          <div className={classes.schoolContent}>
+            <span>
+              <span className={classes.bold}>{lessons}</span> lessons
+            </span>
+            <span className={classes.schoolName}>in {item.id}</span>
+          </div>
+        </div>
+      );
+    });
   }
   return (
-    <div>
+    <div className={classes.schoolContainer}>
       <Header isSubtitle title={title} />
-      {renderSelectedSchools()}
+      <Header isSubtitle title={`in ${campName}`} />
+      <div>{renderSelectedSchools()}</div>
     </div>
   );
 };
