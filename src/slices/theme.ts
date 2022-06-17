@@ -1,5 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AppThunk } from "src/store";
+import { createSlice } from "@reduxjs/toolkit";
 export interface ThemeState {
   isDarkTheme: boolean;
 }
@@ -12,18 +11,12 @@ export const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
-    toggleTheme: (state, action: PayloadAction<boolean>) => {
-      state.isDarkTheme = action.payload;
+    toggleTheme: (state) => {
+      console.log("🚀 ~ file: theme.ts ~ line 16 ~ state", state);
+      state.isDarkTheme = !state.isDarkTheme;
     },
   },
 });
-
-export const toggleDarkMode =
-  (): AppThunk =>
-  (dispatch, getState): void => {
-    const mode = getState().theme.isDarkTheme;
-    dispatch(toggleTheme(!mode));
-  };
 
 export const { toggleTheme } = themeSlice.actions;
 

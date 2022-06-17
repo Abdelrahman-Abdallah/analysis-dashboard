@@ -13,7 +13,7 @@ export const store = configureStore({
 });
 
 store.subscribe(() => {
-  console.log(store.getState());
+  console.log(store.getState().data);
 });
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, AnyAction>;

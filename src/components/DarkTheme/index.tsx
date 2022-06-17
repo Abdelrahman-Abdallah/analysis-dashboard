@@ -1,4 +1,4 @@
-import { toggleDarkMode } from "src/slices/theme";
+import { toggleTheme } from "src/slices/theme";
 import { useDispatch, useSelector } from "src/store";
 import "./style.css";
 
@@ -7,7 +7,7 @@ const DarkTheme = () => {
   const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
 
   function handleChangeMode(): void {
-    dispatch(toggleDarkMode());
+    dispatch(toggleTheme());
   }
   return (
     <div className="toggle-theme-wrapper">

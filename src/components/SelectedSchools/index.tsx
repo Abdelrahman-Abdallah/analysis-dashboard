@@ -5,12 +5,12 @@ import classes from "./styles.module.css";
 
 interface SelectedSchoolsProps {
   info: TableBaseDataSet[];
-  selectedSchools: string[];
+  hiddenSchools: string[];
   onCheckSchool: (id: string) => void;
   numberOfLessons: number;
   campName: string;
 }
-const SelectedSchools: FC<SelectedSchoolsProps> = ({ info, onCheckSchool, selectedSchools, numberOfLessons, campName }) => {
+const SelectedSchools: FC<SelectedSchoolsProps> = ({ info, onCheckSchool, hiddenSchools, numberOfLessons, campName }) => {
   const title = `${numberOfLessons} lessons`;
 
   function handleItemClick(id: string) {
@@ -22,8 +22,8 @@ const SelectedSchools: FC<SelectedSchoolsProps> = ({ info, onCheckSchool, select
   function renderSelectedSchools(): JSX.Element[] {
     return info.map((item) => {
       const lessons = item.data.reduce((acc, value) => acc + value, 0);
-      const isChecked = !selectedSchools.includes(item.id) ? true : false;
-      const color = selectedSchools.includes(item.id) ? "#DDD" : item.borderColor;
+      const isChecked = !hiddenSchools.includes(item.id) ? true : false;
+      const color = hiddenSchools.includes(item.id) ? "#DDD" : item.borderColor;
       return (
         <div key={item.id} className={classes.schoolItem} onClick={handleItemClick(item.id)} style={{ color: color }}>
           <input type="checkbox" defaultChecked={isChecked} className={classes.checkbox} style={{ backgroundColor: color }} />

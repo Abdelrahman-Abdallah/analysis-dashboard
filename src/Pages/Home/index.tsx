@@ -25,7 +25,7 @@ const Home: FC = () => {
     <Container>
       <Header title="Analysis Chart" />
       <Header title="Number of Lessons" isSubtitle />
-      <SelectForm />
+      {data.length > 0 && <SelectForm />}
       {renderChart()}
     </Container>
   );
